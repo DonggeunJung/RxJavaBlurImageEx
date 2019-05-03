@@ -21,6 +21,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
     TextView tv1;
@@ -97,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void onBtnRxjava(View v) {
         Observable.just(getResourceBitmap(R.drawable.flower03))
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
                 .map(image -> blur(getApplicationContext(), image, 25))
                 .subscribe(newImg -> iv.setImageBitmap(newImg));
     }
