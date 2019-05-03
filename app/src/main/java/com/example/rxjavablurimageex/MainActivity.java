@@ -23,7 +23,6 @@ import android.widget.TextView;
 import io.reactivex.Observable;
 
 public class MainActivity extends AppCompatActivity {
-    //LinearLayout layoutMain;
     TextView tv1;
     ImageView iv;
     long count = 0;
@@ -32,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //layoutMain = findViewById(R.id.layoutMain);
         tv1 = findViewById(R.id.tv1);
         iv = findViewById(R.id.iv);
         mTimer.sendEmptyMessageDelayed(0, 200);
