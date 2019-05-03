@@ -100,8 +100,8 @@ public class MainActivity extends AppCompatActivity {
     public void onBtnRxjava(View v) {
         Observable.just(getResourceBitmap(R.drawable.flower03))
                 .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
                 .map(image -> blur(getApplicationContext(), image, 25))
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(newImg -> iv.setImageBitmap(newImg));
     }
 
